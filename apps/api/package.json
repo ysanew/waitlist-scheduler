@@ -8,7 +8,11 @@
     "build": "tsc -p tsconfig.json",
     "start": "node dist/server.js",
     "typecheck": "tsc -p tsconfig.json --noEmit",
-    "test": "vitest run"
+    "test": "vitest run",
+    "typeorm": "tsx --env-file=../../.env ./node_modules/typeorm/cli.js",
+    "migration:generate": "tsx --env-file=../../.env ./node_modules/typeorm/cli.js migration:generate -d ./src/data-source.ts",
+    "migration:run": "tsx --env-file=../../.env ./node_modules/typeorm/cli.js migration:run -d ./src/data-source.ts",
+    "migration:revert": "tsx --env-file=../../.env ./node_modules/typeorm/cli.js migration:revert -d ./src/data-source.ts"
   },
   "dependencies": {
     "@wls/shared": "workspace:*",
